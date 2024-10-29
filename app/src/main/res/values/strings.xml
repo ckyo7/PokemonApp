@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PokemonsApp</string>
+
+    <string name="main_button">Gotta Catch \' Em All</string>
 </resources>

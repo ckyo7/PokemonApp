@@ -5,5 +5,14 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.PokemonsApp" parent="Base.Theme.PokemonsApp" />
+    <style name="Theme.PokemonsApp" parent="Base.Theme.PokemonsApp" >
+        <item name="buttonStyle">@style/PokemonButtonStyle</item>
+        <!-- <item name="fontFamily">@font/pokemon_hollow</item>-->
+    </style>
+
+    <style name="PokemonButtonStyle">
+        <item name="fontFamily">@font/pokemon_solid</item>
+        <item name="android:textColor">@color/yellow_background</item>
+        <item name="android:textColorHighlight">@color/black</item>
+    </style>
 </resources>
