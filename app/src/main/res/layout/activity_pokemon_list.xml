@@ -6,11 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".presentation.view.pokemonlist.PokemonListActivity">
+    android:background="@color/yellow_background"
+    tools:context=".presentation.view.list.PokemonListActivity">
+
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Buscar Pokémon"
+        android:layout_margin="12dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPokemonList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="12dp"/>
+        android:layout_marginHorizontal="12dp"
+        android:layout_height="match_parent"/>
 </LinearLayout>

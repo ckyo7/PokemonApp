@@ -1,4 +1,4 @@
-package com.example.pokemonsapp.presentation.view.pokemonlist.adapter
+package com.example.pokemonsapp.presentation.view.list.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,21 +9,51 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemonsapp.R
 import com.example.pokemonsapp.data.api.models.PokemonModel
 import com.squareup.picasso.Picasso
-import java.util.Locale
 
-class PokemonAdapter(private val pokemonList: List<PokemonModel>) :
+class PokemonAdapter(
+    private val pokemonList: List<PokemonModel>,
+    val listener: OnPokemonClickListener
+) :
     RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
 
     inner class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val pokemonImage: ImageView = itemView.findViewById(R.id.pokemon_image)
         val pokemonName: TextView = itemView.findViewById(R.id.pokemon_name)
 
+
         fun bind(pokemon: PokemonModel) {
             pokemonName.text = pokemon.name.replaceFirstChar { it.uppercase() }
+
             Picasso.get()
                 .load(getImageUrlFromPokemonNumber(pokemon.url))
                 .placeholder(R.mipmap.ic_snorlak_placeholder)
-                .into(pokemonImage);
+                .into(pokemonImage)
+
+
+            itemView.rootView.setOnClickListener {
+                listener.onPokemonClick(pokemon.name)
+            }
+            /*
+
+            Picasso.get()
+                .load(getImageUrlFromPokemonNumber(pokemon.url))
+                .placeholder(R.mipmap.ic_snorlak_placeholder)
+                .into(object : Target {
+                    override fun onBitmapLoaded(bitmap: Bitmap, from: Picasso.LoadedFrom?) {
+                        PokemonUtil.getDominantColor(bitmap).let { dominantColor ->
+                            //Do nothgintr yet
+                        }
+                    }
+
+                    override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {
+                        // Handle error
+                    }
+
+                    override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
+                        // Handle placeholder
+                    }
+                })
+             */
         }
 
         private fun getImageUrlFromPokemonNumber(url: String): String {
@@ -53,5 +83,9 @@ class PokemonAdapter(private val pokemonList: List<PokemonModel>) :
     override fun getItemCount(): Int {
         return pokemonList.size
 
+    }
+
+    interface OnPokemonClickListener {
+        fun onPokemonClick(name: String)
     }
 }
