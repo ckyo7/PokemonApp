@@ -21,10 +21,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPokemonList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        tools:itemCount="120"
         android:layout_marginHorizontal="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchEditText" />
+        app:layout_constraintTop_toBottomOf="@id/searchEditText"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <include
         layout="@layout/loader_layout"
