@@ -1,25 +1,25 @@
 package com.example.pokemonsapp.domain.usecases
 
+import com.example.pokemonsapp.data.api.models.PokemonDetailResponse
 import com.example.pokemonsapp.data.api.models.PokemonResponse
+import com.example.pokemonsapp.data.repository.PokemonRepository
 import com.example.pokemonsapp.domain.Resource
-import com.example.pokemonsapp.domain.interfaces.IPokemonRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import java.io.IOException
-import java.sql.Time
 
-class GetPokemonListUseCase(
-    private val repository: IPokemonRepository
+class GetPokemonDetailUseCase(
+    private val repository: PokemonRepository
 ) {
-    fun invoke(): Flow<Resource<out PokemonResponse>> =
+    fun invoke(name : String): Flow<Resource<PokemonDetailResponse>> =
         flow {
             emit(Resource.Loading)
             delay(2500)
-            var response: Resource<out PokemonResponse> = try {
-                val response = repository.getPokemonList()
+            val response: Resource<PokemonDetailResponse> = try {
+                val response = repository.getPokemonDetail(name)
                 if (response.isSuccessful) {
                     response.body()?.let {
                         Resource.Success(it)

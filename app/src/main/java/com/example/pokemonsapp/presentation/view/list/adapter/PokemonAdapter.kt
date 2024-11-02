@@ -1,14 +1,15 @@
 package com.example.pokemonsapp.presentation.view.list.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.pokemonsapp.R
 import com.example.pokemonsapp.data.api.models.PokemonModel
-import com.squareup.picasso.Picasso
 
 class PokemonAdapter(
     private val pokemonList: List<PokemonModel>,
@@ -24,10 +25,21 @@ class PokemonAdapter(
         fun bind(pokemon: PokemonModel) {
             pokemonName.text = pokemon.name.replaceFirstChar { it.uppercase() }
 
-            Picasso.get()
-                .load(getImageUrlFromPokemonNumber(pokemon.url))
-                .placeholder(R.mipmap.ic_snorlak_placeholder)
-                .into(pokemonImage)
+            try {
+                Glide.with(itemView).load(getImageUrlFromPokemonNumber(pokemon.url))
+                    .error(R.drawable.ic_launcher_foreground)
+                    .placeholder(R.mipmap.ic_snorlak_placeholder)
+                    .into(pokemonImage)
+            } catch (exception: Exception) {
+                Glide.with(itemView).load(R.drawable.ic_launcher_foreground)
+                    .into(pokemonImage)
+                Log.d(
+                    null,
+                    exception.message ?: "Error has occurred when catching image from server"
+                )
+
+            }
+
 
 
             itemView.rootView.setOnClickListener {
