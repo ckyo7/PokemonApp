@@ -39,38 +39,14 @@ class PokemonAdapter(
                 )
 
             }
-
-
-
             itemView.rootView.setOnClickListener {
                 listener.onPokemonClick(pokemon.name)
             }
-            /*
-
-            Picasso.get()
-                .load(getImageUrlFromPokemonNumber(pokemon.url))
-                .placeholder(R.mipmap.ic_snorlak_placeholder)
-                .into(object : Target {
-                    override fun onBitmapLoaded(bitmap: Bitmap, from: Picasso.LoadedFrom?) {
-                        PokemonUtil.getDominantColor(bitmap).let { dominantColor ->
-                            //Do nothgintr yet
-                        }
-                    }
-
-                    override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {
-                        // Handle error
-                    }
-
-                    override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
-                        // Handle placeholder
-                    }
-                })
-             */
         }
 
         private fun getImageUrlFromPokemonNumber(url: String): String {
             val pokemonId = extractPokemonIdFromUrl(url)
-            return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$pokemonId.png"
+            return itemView.context.getString(R.string.url_pokemon_image, pokemonId)
         }
 
         private fun extractPokemonIdFromUrl(url: String): String {
@@ -94,7 +70,6 @@ class PokemonAdapter(
 
     override fun getItemCount(): Int {
         return pokemonList.size
-
     }
 
     interface OnPokemonClickListener {

@@ -14,7 +14,6 @@ data class PokemonDetailResponse(
     val stats: List<Stat>,
     val moves: List<Move>,
     val heldItems: List<HeldItem>,
-    // Add other fields as needed based on the response structure
 )
 
 data class Sprites(

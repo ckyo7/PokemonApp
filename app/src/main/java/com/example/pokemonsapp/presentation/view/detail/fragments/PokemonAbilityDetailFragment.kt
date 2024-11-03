@@ -1,16 +1,15 @@
 package com.example.pokemonsapp.presentation.view.detail.fragments
 
-import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.pokemonsapp.databinding.FragmentPokemonAbilitiesBinding
+import com.example.pokemonsapp.presentation.GlobalConstants
 import com.example.pokemonsapp.presentation.view.BaseVMFragment
 import com.example.pokemonsapp.presentation.view.detail.viewmodels.PokemonDetailViewModel
 
 
-class PokemonAbilitiesFragment :
+class PokemonAbilityDetailFragment :
     BaseVMFragment<PokemonDetailViewModel, FragmentPokemonAbilitiesBinding>() {
     override val viewModel: PokemonDetailViewModel by activityViewModels()
     override fun initViewBinding(
@@ -20,10 +19,16 @@ class PokemonAbilitiesFragment :
     ) = FragmentPokemonAbilitiesBinding.inflate(inflater, container, attachToParent)
 
     override fun onViewModelCreated() {
-        //Not yet
-    }
+        viewModel.abilityDetailData.observe(this) {
+            binding.abilityTittle.text = it.name.replace(
+                GlobalConstants.HYPHEN_CHAR,
+                GlobalConstants.EMPTY_TEXT_SPACE
+            ).replaceFirstChar { char -> char.uppercase() }
+            binding.abilityDescription.text = it.effecEntries[1].effect
+        }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        viewModel.abilityClicked.observe(this) {
+            viewModel.obtainAbilityDetail(it)
+        }
     }
 }

@@ -5,16 +5,12 @@ import androidx.activity.viewModels
 import com.example.pokemonsapp.R
 import com.example.pokemonsapp.databinding.ActivityPokemonDetailBinding
 import com.example.pokemonsapp.presentation.BaseVMActivity
-import com.example.pokemonsapp.presentation.view.detail.fragments.PokemonAbilitiesFragment
+import com.example.pokemonsapp.presentation.view.detail.fragments.PokemonAbilityDetailFragment
 import com.example.pokemonsapp.presentation.view.detail.fragments.PokemonDetailFragment
 import com.example.pokemonsapp.presentation.view.detail.viewmodels.PokemonDetailViewModel
 
 class PokemonDetailActivity :
     BaseVMActivity<PokemonDetailViewModel, ActivityPokemonDetailBinding>() {
-
-    companion object {
-        const val INTENT_POKEMON_DETAIL_NAME = "INTENT_POKEMON_DETAIL_NAME"
-    }
 
     override val viewModel: PokemonDetailViewModel by viewModels()
 
@@ -23,29 +19,14 @@ class PokemonDetailActivity :
     override fun onViewBindingCreated() {
 
         binding.buttonDetail.setOnClickListener {
-            val currentFragment =
-                supportFragmentManager.findFragmentById(binding.fragmentContainer.id)
-            when (currentFragment) {
-                is PokemonDetailFragment -> {
-                    finish()
-                }
-
-                is PokemonAbilitiesFragment -> {
-                    supportFragmentManager.popBackStack()
-                }
-
-                else -> {
-                    //Handle error
-                }
-            }
+            buttonClickListener()
         }
 
         supportFragmentManager.beginTransaction()
             .add(
                 R.id.fragment_container,
                 PokemonDetailFragment()
-            ) // Reemplaza el contenido del contenedor
-            .commit() // Realiza la transacción
+            ).commit()
     }
 
     override fun onViewModelCreated() {
@@ -56,5 +37,37 @@ class PokemonDetailActivity :
                 View.GONE
             }
         }
+
+        viewModel.abilityClicked.observe(this) {
+            supportFragmentManager.beginTransaction()
+                .replace(
+                    R.id.fragment_container,
+                    PokemonAbilityDetailFragment()
+                ).addToBackStack(null).commit()
+        }
+    }
+
+    /* UI ACTIVITY METHODS*/
+    private fun buttonClickListener() {
+        val currentFragment =
+            supportFragmentManager.findFragmentById(binding.fragmentContainer.id)
+        when (currentFragment) {
+            is PokemonDetailFragment -> {
+                finish()
+            }
+
+            is PokemonAbilityDetailFragment -> {
+                supportFragmentManager.popBackStack()
+            }
+
+            else -> {
+                //Handle error
+            }
+        }
+    }
+
+
+    companion object {
+        const val INTENT_POKEMON_DETAIL_NAME = "INTENT_POKEMON_DETAIL_NAME"
     }
 }

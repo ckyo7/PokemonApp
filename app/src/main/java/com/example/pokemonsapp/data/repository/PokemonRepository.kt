@@ -1,5 +1,6 @@
 package com.example.pokemonsapp.data.repository
 
+import com.example.pokemonsapp.data.api.models.AbilityDetailResponse
 import com.example.pokemonsapp.data.api.models.PokemonDetailResponse
 import com.example.pokemonsapp.data.api.models.PokemonResponse
 import com.example.pokemonsapp.data.api.services.PokemonApi
@@ -15,5 +16,9 @@ class PokemonRepository(private val retrofit: Retrofit) : IPokemonRepository {
 
     override suspend fun getPokemonDetail(name: String): Response<PokemonDetailResponse> {
         return retrofit.create(PokemonApi::class.java).getPokemonDetail(name)
+    }
+
+    override suspend fun getAbilityDetail(name: String): Response<AbilityDetailResponse> {
+        return retrofit.create(PokemonApi::class.java).getAbilityDetail(name)
     }
 }

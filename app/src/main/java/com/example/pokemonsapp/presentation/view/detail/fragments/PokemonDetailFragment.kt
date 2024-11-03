@@ -7,15 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokemonsapp.R
 import com.example.pokemonsapp.databinding.FragmentPokemonDetailBinding
 import com.example.pokemonsapp.presentation.view.BaseVMFragment
 import com.example.pokemonsapp.presentation.view.detail.PokemonDetailActivity.Companion.INTENT_POKEMON_DETAIL_NAME
+import com.example.pokemonsapp.presentation.view.detail.adapter.AbilitiesPokemonDetailAdapter
 import com.example.pokemonsapp.presentation.view.detail.viewmodels.PokemonDetailViewModel
 
 class PokemonDetailFragment :
-    BaseVMFragment<PokemonDetailViewModel, FragmentPokemonDetailBinding>() {
+    BaseVMFragment<PokemonDetailViewModel, FragmentPokemonDetailBinding>(),
+    AbilitiesPokemonDetailAdapter.OnAbilityClickListener {
     override val viewModel: PokemonDetailViewModel by activityViewModels()
 
     override fun initViewBinding(
@@ -27,27 +31,32 @@ class PokemonDetailFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.root.visibility = View.VISIBLE
+        initAbilityRecyclcerView()
     }
 
     override fun onViewModelCreated() {
-        viewModel.pokemonDetailData.observe(this) { screenData ->
-            Glide.with(requireContext()).load(screenData.sprites.other.showdown?.frontDefault)
-                .into(binding.pokemonImage);
-
+        viewModel.nameWrapper.observe(this) { screenData ->
             binding.pokemonName.text = getString(
                 R.string.text_name_pokemon_detail,
-                screenData.id.toString(),
-                screenData.name.replaceFirstChar { it.uppercase() })
-
-            viewModel.isLoading.postValue(false)
+                screenData.id,
+                screenData.name
+            )
         }
 
-        viewModel.heightData.observe(this){
-            binding.pokemonHeight.text= getString(R.string.text_height_pokemon_detail,it.toString())
+        viewModel.frontSprite.observe(this) { sprite ->
+            Glide.with(requireContext()).load(sprite)
+                .error(R.drawable.ic_logo)
+                .into(binding.pokemonImage)
         }
 
-        viewModel.weightData.observe(this){
-            binding.pokemonWeight.text= getString(R.string.text_weight_pokemon_detail,it.toString())
+        viewModel.heightData.observe(this) {
+            binding.pokemonHeight.text =
+                getString(R.string.text_height_pokemon_detail, it.toString())
+        }
+
+        viewModel.weightData.observe(this) {
+            binding.pokemonWeight.text =
+                getString(R.string.text_weight_pokemon_detail, it.toString())
         }
 
         viewModel.typesWrapper.observe(this) { typeList ->
@@ -58,11 +67,22 @@ class PokemonDetailFragment :
             }
         }
 
+        viewModel.abilityList.observe(this) { abilities ->
+            binding.pokemonAbilitiesTitle.visibility = View.VISIBLE
+            binding.rvAbilities.adapter = AbilitiesPokemonDetailAdapter(abilities, this)
+        }
 
         activity?.intent?.getStringExtra(INTENT_POKEMON_DETAIL_NAME)?.let {
             viewModel.obtainPokemonList(it)
         } ?: {
             //show error
+        }
+    }
+
+    /*  INIT UI METHODS */
+    private fun initAbilityRecyclcerView() {
+        binding.rvAbilities.apply {
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         }
     }
 
@@ -80,7 +100,7 @@ class PokemonDetailFragment :
 
     private fun setTypeTextViewProperties(textView: TextView, type: String, typeColor: Int) {
         textView.apply {
-            text = type.replaceFirstChar { it.uppercase() }
+            text = type
             background = GradientDrawable().apply {
                 shape = GradientDrawable.RECTANGLE
                 setColor(typeColor)
@@ -88,5 +108,9 @@ class PokemonDetailFragment :
             }
             visibility = View.VISIBLE
         }
+    }
+
+    override fun onAbilityClick(name: String) {
+        viewModel.abilityClicked.postValue(name)
     }
 }

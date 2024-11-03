@@ -1,5 +1,6 @@
 package com.example.pokemonsapp.data.api.services
 
+import com.example.pokemonsapp.data.api.models.AbilityDetailResponse
 import com.example.pokemonsapp.data.api.models.PokemonDetailResponse
 import com.example.pokemonsapp.data.api.models.PokemonResponse
 import com.example.pokemonsapp.domain.Resource
@@ -13,4 +14,8 @@ interface PokemonApi {
 
     @GET("pokemon/{name}")
     suspend fun getPokemonDetail(@Path("name") name : String): Response<PokemonDetailResponse>
+
+    @GET("ability/{name}/")
+    suspend fun getAbilityDetail(@Path("name") id : String): Response<AbilityDetailResponse>
+
 }
