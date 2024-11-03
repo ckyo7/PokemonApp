@@ -3,8 +3,8 @@ package com.example.pokemonsapp.presentation.view.detail.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
-import com.example.pokemonsapp.data.api.models.AbilityDetailResponse
-import com.example.pokemonsapp.data.api.models.PokemonDetailResponse
+import com.example.pokemonsapp.data.api.models.ValidatedAbilityDetail
+import com.example.pokemonsapp.data.api.models.ValidatedPokemonDetail
 import com.example.pokemonsapp.data.client.RetrofitClient
 import com.example.pokemonsapp.data.repository.PokemonRepository
 import com.example.pokemonsapp.domain.Resource
@@ -12,7 +12,7 @@ import com.example.pokemonsapp.domain.usecases.GetAbilityDetailUseCase
 import com.example.pokemonsapp.domain.usecases.GetPokemonDetailUseCase
 import com.example.pokemonsapp.presentation.BaseViewModel
 import com.example.pokemonsapp.presentation.GlobalConstants
-import com.example.pokemonsapp.presentation.utils.PokemonUtil
+import com.example.pokemonsapp.presentation.utils.getColorByType
 import kotlinx.coroutines.launch
 
 class PokemonDetailViewModel(
@@ -24,61 +24,58 @@ class PokemonDetailViewModel(
     ),
 ) : BaseViewModel() {
 
-    private val pokemonDetailData: MutableLiveData<PokemonDetailResponse> = MutableLiveData()
-    val abilityDetailData: MutableLiveData<AbilityDetailResponse> = MutableLiveData()
+    private val pokemonDetailData: MutableLiveData<ValidatedPokemonDetail> = MutableLiveData()
+    var abilityDetailData: MutableLiveData<ValidatedAbilityDetail> = MutableLiveData()
     val abilityClicked: MutableLiveData<String> = MutableLiveData()
 
     val frontSprite = pokemonDetailData.map {
-        it.sprites.other.showdown?.frontDefault
+        it.sprites.other.showdown.frontDefault
     }
 
-    val nameWrapper = pokemonDetailData.map {
+    val nameWrapper = pokemonDetailData.map { detail ->
         NameWrapper(
-            it.name.replaceFirstChar { char -> char.uppercase() },
-            it.id.toString()
+            detail.name.replaceFirstChar { it.uppercase() },
+            detail.id.toString(),
+            detail.baseExperience.toString()
         )
     }
 
     val typesWrapper = pokemonDetailData.map { data ->
-        data.types.map {
+        data.types.map { type ->
             TypeWrapper(
-                it.type.name.replaceFirstChar { char -> char.uppercase() },
-                PokemonUtil.getColorByType(it.type.name)
+                type.name.replaceFirstChar { it.uppercase() },
+                getColorByType(type.name)
             )
         }
     }
 
     val abilityList = pokemonDetailData.map {
-        it.abilities.map { ability ->
+        it.abilities.map { abilityWrapped ->
             AbilityWrapper(
-                ability.ability.name,
-                ability.ability.name.replace(
+                abilityWrapped.ability.name,
+                abilityWrapped.ability.name.replace(
                     GlobalConstants.HYPHEN_CHAR,
                     GlobalConstants.EMPTY_TEXT_SPACE
-                )
-                    .replaceFirstChar { char -> char.uppercase() }
+                ).replaceFirstChar { char -> char.uppercase() }
             )
         }
     }
 
     val heightData = pokemonDetailData.map { data ->
-        data.height
+        data.height * GlobalConstants.CONVERSION_RATE
     }
     val weightData = pokemonDetailData.map { data ->
-        data.weight
+        data.weight * GlobalConstants.CONVERSION_RATE
     }
 
-    fun obtainPokemonList(name: String) {
+    fun obtainPokemonDetail(name: String) {
         if (!pokemonDetailData.isInitialized) {
+            isLoading.postValue(true)
             viewModelScope.launch {
                 getPokemonDetailUseCase.invoke(name).collect { result ->
                     when (result) {
                         is Resource.Error -> {
-                            //setInitialData(listOf(PokemonModel("HOLA", "Paco")))
-                        }
-
-                        is Resource.Loading -> {
-                            isLoading.postValue(true)
+                            toastErrorMessage.postValue(result.message)
                         }
 
                         is Resource.Success -> {
@@ -93,14 +90,11 @@ class PokemonDetailViewModel(
     }
 
     fun obtainAbilityDetail(name: String) = viewModelScope.launch {
+        isLoading.postValue(true)
         getAbilityDetailUseCase.invoke(name).collect { result ->
             when (result) {
                 is Resource.Error -> {
-                    //setInitialData(listOf(PokemonModel("HOLA", "Paco")))
-                }
-
-                is Resource.Loading -> {
-                    isLoading.postValue(true)
+                    toastErrorMessage.postValue(result.message)
                 }
 
                 is Resource.Success -> {
@@ -120,14 +114,14 @@ class PokemonDetailViewModel(
 
         data class NameWrapper(
             val name: String,
-            val id: String
+            val id: String,
+            val baseExperience: String
         )
 
         data class AbilityWrapper(
             val originalName: String,
             val formattedName: String
         )
-
     }
 }
 

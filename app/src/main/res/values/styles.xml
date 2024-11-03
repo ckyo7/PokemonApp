@@ -10,9 +10,34 @@
 
     <style name="TypeTextView">
         <item name="android:layout_marginVertical">8dp</item>
-        <item name="fontFamily">@font/pokemon_solid</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="MeasuresTextView">
+        <item name="android:textSize">15sp</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="PokemonNameDetail">
+        <item name="android:textSize">30sp</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="ImageViewDetail">
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="PokemonCardNameStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="PokemonCardStyle">
+        <item name="cardMaxElevation">12dp</item>
+        <item name="cardElevation">6dp</item>
+        <item name="cardCornerRadius">20dp</item>
     </style>
 </resources>

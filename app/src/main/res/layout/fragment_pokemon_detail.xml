@@ -8,24 +8,22 @@
 
     <ImageView
         android:id="@+id/pokemonImage"
+        style="@style/ImageViewDetail"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:layout_marginTop="25dp"
         android:contentDescription="@string/content_description_gif"
-        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@mipmap/ic_snorlak_placeholder_foreground" />
 
     <TextView
         android:id="@+id/pokemonName"
+        style="@style/PokemonNameDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/pokemon_solid"
-        android:textSize="30sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pokemonImage"
@@ -58,46 +56,44 @@
 
     <TextView
         android:id="@+id/pokemon_height"
+        style="@style/MeasuresTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="18dp"
-        android:fontFamily="@font/pokemon_solid"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pokemonType"
         tools:text="@string/text_height_pokemon_detail" />
 
     <TextView
+        android:id="@+id/pokemon_base_exp"
+        style="@style/MeasuresTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/pokemon_weight"
+        app:layout_constraintStart_toStartOf="@+id/pokemon_height"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon_weight"
+        tools:text="@string/text_base_experience_pokemon_detail" />
+
+    <TextView
         android:id="@+id/pokemon_weight"
+        style="@style/MeasuresTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="18dp"
-        android:fontFamily="@font/pokemon_solid"
-        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pokemon_height"
         app:layout_constraintTop_toTopOf="@+id/pokemon_height"
         tools:text="@string/text_weight_pokemon_detail" />
-
-    <TextView
-        android:id="@+id/pokemon_abilities_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/pokemon_solid"
-        android:text="@string/text_abilities_title_pokemon_detail"
-        android:textSize="16sp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="@id/pokemon_height"
-        app:layout_constraintTop_toBottomOf="@id/pokemon_height"
-        tools:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_abilities"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="18dp"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="@+id/pokemon_weight"
-        app:layout_constraintStart_toStartOf="@+id/pokemon_abilities_title"
-        app:layout_constraintTop_toBottomOf="@id/pokemon_abilities_title"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintStart_toStartOf="@+id/pokemon_height"
+        app:layout_constraintTop_toBottomOf="@id/pokemon_base_exp"
+        tools:itemCount="3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

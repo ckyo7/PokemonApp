@@ -2,37 +2,33 @@ package com.example.pokemonsapp.presentation.view.list.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokemonsapp.R
-import com.example.pokemonsapp.data.api.models.PokemonModel
+import com.example.pokemonsapp.data.api.models.ValidatedPokemonModel
+import com.example.pokemonsapp.databinding.PokemonCardBinding
+import com.example.pokemonsapp.presentation.GlobalConstants
 
 class PokemonAdapter(
-    private val pokemonList: List<PokemonModel>,
+    private val pokemonList: List<ValidatedPokemonModel>,
     val listener: OnPokemonClickListener
 ) :
     RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
 
-    inner class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val pokemonImage: ImageView = itemView.findViewById(R.id.pokemon_image)
-        val pokemonName: TextView = itemView.findViewById(R.id.pokemon_name)
+    inner class PokemonViewHolder(private val binding: PokemonCardBinding) : RecyclerView.ViewHolder(binding.root) {
 
-
-        fun bind(pokemon: PokemonModel) {
-            pokemonName.text = pokemon.name.replaceFirstChar { it.uppercase() }
+        fun bind(pokemon: ValidatedPokemonModel) {
+            binding.pokemonName.text = pokemon.name.replaceFirstChar { it.uppercase() }
 
             try {
                 Glide.with(itemView).load(getImageUrlFromPokemonNumber(pokemon.url))
                     .error(R.drawable.ic_launcher_foreground)
                     .placeholder(R.mipmap.ic_snorlak_placeholder)
-                    .into(pokemonImage)
+                    .into(binding.pokemonImage)
             } catch (exception: Exception) {
                 Glide.with(itemView).load(R.drawable.ic_launcher_foreground)
-                    .into(pokemonImage)
+                    .into(binding.pokemonImage)
                 Log.d(
                     null,
                     exception.message ?: "Error has occurred when catching image from server"
@@ -50,17 +46,15 @@ class PokemonAdapter(
         }
 
         private fun extractPokemonIdFromUrl(url: String): String {
-            val urlParts = url.split("/")
+            val urlParts = url.split(GlobalConstants.BAR_RIGHT_CHAR)
             return urlParts[urlParts.lastIndex - 1]
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(
-            R.layout.pokemon_card,
-            parent, false
-        )
-        return PokemonViewHolder(view)
+        val binding =
+            PokemonCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return PokemonViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {

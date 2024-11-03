@@ -8,5 +8,8 @@
 
     <string name="bar_char">/</string>
     <string name="empty_space_text"> </string>
+    <string name="service_error_message">Error : %s, try later </string>
+    <string name="image_card_mode_content_description">Content Description image</string>
+
 
 </resources>

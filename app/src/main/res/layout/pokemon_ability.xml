@@ -16,7 +16,6 @@
         tools:src="@drawable/ic_launcher_background"
         tools:text="@string/search_pokemon_title" />
 
-
     <ImageView
         android:id="@+id/ability_icon"
         android:layout_width="wrap_content"

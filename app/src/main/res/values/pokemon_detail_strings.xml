@@ -9,7 +9,8 @@
     <string name="text_name_pokemon_detail">Pokedex : %s, %s</string>
     <string name="content_description_gif">Pokemon Gif</string>
     <string name="content_description_chevron">Right Chevron</string>
-    <string name="text_height_pokemon_detail">Height : %s cm</string>
+    <string name="text_height_pokemon_detail">Height : %s m</string>
+    <string name="text_base_experience_pokemon_detail">B.Exp : %s exp</string>
     <string name="text_weight_pokemon_detail">Weight : %s kg</string>
     <string name="text_abilities_title_pokemon_detail">Abilities</string>
 

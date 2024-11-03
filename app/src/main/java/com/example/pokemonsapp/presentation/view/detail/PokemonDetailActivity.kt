@@ -1,11 +1,13 @@
 package com.example.pokemonsapp.presentation.view.detail
 
+import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import com.example.pokemonsapp.R
 import com.example.pokemonsapp.databinding.ActivityPokemonDetailBinding
 import com.example.pokemonsapp.presentation.BaseVMActivity
 import com.example.pokemonsapp.presentation.view.detail.fragments.PokemonAbilityDetailFragment
+import com.example.pokemonsapp.presentation.view.detail.fragments.PokemonAbilityDetailFragment.Companion.INTENT_ABILITY_NAME
 import com.example.pokemonsapp.presentation.view.detail.fragments.PokemonDetailFragment
 import com.example.pokemonsapp.presentation.view.detail.viewmodels.PokemonDetailViewModel
 
@@ -39,10 +41,18 @@ class PokemonDetailActivity :
         }
 
         viewModel.abilityClicked.observe(this) {
+            val fragment = PokemonAbilityDetailFragment().apply {
+                arguments = Bundle().apply {
+                    putString(
+                        INTENT_ABILITY_NAME,
+                        it
+                    )
+                }
+            }
             supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.fragment_container,
-                    PokemonAbilityDetailFragment()
+                    fragment
                 ).addToBackStack(null).commit()
         }
     }

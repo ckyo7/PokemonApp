@@ -1,16 +1,16 @@
 package com.example.pokemonsapp.presentation.view.list.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
 import androidx.lifecycle.switchMap
 import androidx.lifecycle.viewModelScope
-import com.example.pokemonsapp.data.api.models.PokemonModel
+import com.example.pokemonsapp.data.api.models.ValidatedPokemonModel
 import com.example.pokemonsapp.data.client.RetrofitClient
 import com.example.pokemonsapp.data.repository.PokemonRepository
 import com.example.pokemonsapp.domain.Resource
 import com.example.pokemonsapp.domain.usecases.GetPokemonListUseCase
 import com.example.pokemonsapp.presentation.BaseViewModel
+import com.example.pokemonsapp.presentation.GlobalConstants
 import kotlinx.coroutines.launch
 
 class PokemonListViewModel(
@@ -19,8 +19,8 @@ class PokemonListViewModel(
     )
 ) : BaseViewModel() {
 
-    val pokemonList: MutableLiveData<List<PokemonModel>> = MutableLiveData()
-    val textFilter: MutableLiveData<String> = MutableLiveData()
+    private val textFilter: MutableLiveData<String> = MutableLiveData()
+    val pokemonList: MutableLiveData<List<ValidatedPokemonModel>> = MutableLiveData()
     val pokemonFilteredList = textFilter.switchMap { textFilter ->
         pokemonList.map { list ->
             if (textFilter.isEmpty()) {
@@ -32,20 +32,16 @@ class PokemonListViewModel(
     }
 
     fun obtainPokemonList() = viewModelScope.launch {
+        isLoading.postValue(true)
         getPokemonListUseCase.invoke().collect { result ->
             when (result) {
                 is Resource.Error -> {
-                    setInitialData(listOf(PokemonModel("HOLA", "Paco")))
-
-                }
-
-                is Resource.Loading -> {
-                    isLoading.postValue(true)
+                    toastErrorMessage.postValue(result.message)
                 }
 
                 is Resource.Success -> {
                     isLoading.postValue(false)
-                    setInitialData(result.data.results)
+                    setInitialData(result.data)
                 }
             }
         }
@@ -55,8 +51,8 @@ class PokemonListViewModel(
     fun filterPokemonList(textWritten: String) = textFilter.postValue(textWritten)
 
 
-    private fun setInitialData(results: List<PokemonModel>) {
+    private fun setInitialData(results: List<ValidatedPokemonModel>) {
         pokemonList.postValue(results)
-        textFilter.postValue("")
+        textFilter.postValue(GlobalConstants.EMPTY_TEXT)
     }
 }

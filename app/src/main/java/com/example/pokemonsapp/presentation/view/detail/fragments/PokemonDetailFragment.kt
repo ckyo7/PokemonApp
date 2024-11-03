@@ -1,5 +1,6 @@
 package com.example.pokemonsapp.presentation.view.detail.fragments
 
+import android.annotation.SuppressLint
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokemonsapp.R
 import com.example.pokemonsapp.databinding.FragmentPokemonDetailBinding
+import com.example.pokemonsapp.presentation.GlobalConstants
 import com.example.pokemonsapp.presentation.view.BaseVMFragment
 import com.example.pokemonsapp.presentation.view.detail.PokemonDetailActivity.Companion.INTENT_POKEMON_DETAIL_NAME
 import com.example.pokemonsapp.presentation.view.detail.adapter.AbilitiesPokemonDetailAdapter
@@ -34,6 +36,7 @@ class PokemonDetailFragment :
         initAbilityRecyclcerView()
     }
 
+    @SuppressLint("DefaultLocale")
     override fun onViewModelCreated() {
         viewModel.nameWrapper.observe(this) { screenData ->
             binding.pokemonName.text = getString(
@@ -41,6 +44,8 @@ class PokemonDetailFragment :
                 screenData.id,
                 screenData.name
             )
+            binding.pokemonBaseExp.text =
+                getString(R.string.text_base_experience_pokemon_detail, screenData.baseExperience)
         }
 
         viewModel.frontSprite.observe(this) { sprite ->
@@ -51,12 +56,23 @@ class PokemonDetailFragment :
 
         viewModel.heightData.observe(this) {
             binding.pokemonHeight.text =
-                getString(R.string.text_height_pokemon_detail, it.toString())
+                getString(
+                    R.string.text_height_pokemon_detail,
+                    String.format(
+                        GlobalConstants.PATTERN_TWO_DECIMAL,
+                        it / GlobalConstants.CONVERSION_RATE
+                    )
+                )
         }
 
         viewModel.weightData.observe(this) {
             binding.pokemonWeight.text =
-                getString(R.string.text_weight_pokemon_detail, it.toString())
+                getString(
+                    R.string.text_weight_pokemon_detail, String.format(
+                        GlobalConstants.PATTERN_TWO_DECIMAL,
+                        it / GlobalConstants.CONVERSION_RATE
+                    )
+                )
         }
 
         viewModel.typesWrapper.observe(this) { typeList ->
@@ -68,12 +84,11 @@ class PokemonDetailFragment :
         }
 
         viewModel.abilityList.observe(this) { abilities ->
-            binding.pokemonAbilitiesTitle.visibility = View.VISIBLE
             binding.rvAbilities.adapter = AbilitiesPokemonDetailAdapter(abilities, this)
         }
 
         activity?.intent?.getStringExtra(INTENT_POKEMON_DETAIL_NAME)?.let {
-            viewModel.obtainPokemonList(it)
+            viewModel.obtainPokemonDetail(it)
         } ?: {
             //show error
         }

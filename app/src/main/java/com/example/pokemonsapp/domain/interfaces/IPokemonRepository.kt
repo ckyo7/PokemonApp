@@ -3,7 +3,6 @@ package com.example.pokemonsapp.domain.interfaces
 import com.example.pokemonsapp.data.api.models.AbilityDetailResponse
 import com.example.pokemonsapp.data.api.models.PokemonDetailResponse
 import com.example.pokemonsapp.data.api.models.PokemonResponse
-import com.example.pokemonsapp.domain.Resource
 import retrofit2.Response
 
 interface IPokemonRepository {

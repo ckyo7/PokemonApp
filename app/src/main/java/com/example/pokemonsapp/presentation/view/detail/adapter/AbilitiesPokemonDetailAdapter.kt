@@ -16,7 +16,7 @@ class AbilitiesPokemonDetailAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(ability: PokemonDetailViewModel.Companion.AbilityWrapper) {
             binding.abilityName.text = ability.formattedName
-            binding.root.setOnClickListener {
+            binding.abilityIcon.setOnClickListener {
                 listener.onAbilityClick(ability.originalName)
             }
         }

@@ -1,8 +1,8 @@
 package com.example.pokemonsapp.presentation.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pokemonsapp.databinding.ActivityMainBinding
 import com.example.pokemonsapp.presentation.view.list.PokemonListActivity
 
@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root);
+        setContentView(binding.root)
 
         initBoton()
     }
