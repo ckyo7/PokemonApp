@@ -6,6 +6,7 @@ import com.example.pokemonsapp.data.repository.PokemonRepository
 import com.example.pokemonsapp.domain.Resource
 import com.example.pokemonsapp.presentation.utils.getValidateAndCreateValidatedPokemonDetail
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -17,6 +18,7 @@ class GetPokemonDetailUseCase(
 ) {
     fun invoke(name: String): Flow<Resource<ValidatedPokemonDetail>> =
         flow {
+            delay(2500)
             val response: Resource<ValidatedPokemonDetail> = try {
                 val response = repository.getPokemonDetail(name)
                 if (response.isSuccessful) {

@@ -15,6 +15,7 @@ class GetPokemonListUseCase(
     private val repository: IPokemonRepository
 ) {
     fun invoke() = flow {
+        kotlinx.coroutines.delay(2500)
         val response: Resource<List<ValidatedPokemonModel>> = try {
             val response = repository.getPokemonList()
             if (response.isSuccessful) {
