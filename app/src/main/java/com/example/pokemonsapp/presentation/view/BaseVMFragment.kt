@@ -25,7 +25,8 @@ abstract class BaseVMFragment<VM : BaseViewModel, B : ViewBinding> : Fragment() 
         savedInstanceState: Bundle?
     ): View? {
         onViewModelCreated()
-        return initViewBinding(inflater, container, false).root
+        binding = initViewBinding(inflater,container,false)
+        return binding.root
     }
 
     protected abstract fun onViewModelCreated()
