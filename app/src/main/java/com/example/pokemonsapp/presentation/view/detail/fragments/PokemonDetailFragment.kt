@@ -97,7 +97,7 @@ class PokemonDetailFragment :
     /*  INIT UI METHODS */
     private fun initAbilityRecyclcerView() {
         binding.rvAbilities.apply {
-            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            layoutManager = object : LinearLayoutManager(context) { override fun canScrollVertically() = false }
         }
     }
 

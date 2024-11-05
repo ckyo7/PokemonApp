@@ -5,6 +5,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.pokemonsapp.R
 import com.example.pokemonsapp.databinding.ActivityPokemonListBinding
 import com.example.pokemonsapp.presentation.BaseVMActivity
 import com.example.pokemonsapp.presentation.view.detail.PokemonDetailActivity
@@ -34,23 +35,12 @@ class PokemonListActivity : BaseVMActivity<PokemonListViewModel, ActivityPokemon
         viewModel.obtainPokemonList()
     }
 
-    private fun updateLoadingVisibility(isLoading: Boolean) {
-        binding.loadingView.root.visibility = if (isLoading) {
-            binding.group.visibility = View.GONE
-            View.VISIBLE
-        } else {
-            binding.group.visibility = View.VISIBLE
-            View.GONE
-        }
-    }
-
+    /* UI METHODS */
     override fun onPokemonClick(name: String) {
         startActivity(Intent(this, PokemonDetailActivity::class.java).apply {
             putExtra(PokemonDetailActivity.INTENT_POKEMON_DETAIL_NAME, name)
         })
     }
-
-    /* CONFIGURE UI METHODS */
 
     private fun initSearchComponent() {
         binding.searchEditText.addTextChangedListener { textWritten ->
@@ -60,7 +50,22 @@ class PokemonListActivity : BaseVMActivity<PokemonListViewModel, ActivityPokemon
 
     private fun initRecyclerViewConfiguration() {
         binding.rvPokemonList.apply {
-            layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
+            layoutManager = GridLayoutManager(
+                context,
+                resources.displayMetrics.widthPixels / resources.getDimensionPixelSize(R.dimen.pokemon_card_width),
+                GridLayoutManager.VERTICAL,
+                false
+            )
+        }
+    }
+
+    private fun updateLoadingVisibility(isLoading: Boolean) {
+        binding.loadingView.root.visibility = if (isLoading) {
+            binding.group.visibility = View.GONE
+            View.VISIBLE
+        } else {
+            binding.group.visibility = View.VISIBLE
+            View.GONE
         }
     }
 }

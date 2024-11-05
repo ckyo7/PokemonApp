@@ -50,7 +50,6 @@ class PokemonListViewModel(
 
     fun filterPokemonList(textWritten: String) = textFilter.postValue(textWritten)
 
-
     private fun setInitialData(results: List<ValidatedPokemonModel>) {
         pokemonList.postValue(results)
         textFilter.postValue(GlobalConstants.EMPTY_TEXT)
