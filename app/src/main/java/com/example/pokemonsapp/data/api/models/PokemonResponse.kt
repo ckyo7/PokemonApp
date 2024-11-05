@@ -1,3 +1,8 @@
 package com.example.pokemonsapp.data.api.models
 
-data class PokemonResponse(val results: List<PokemonModel?>?)
+import com.google.gson.annotations.SerializedName
+
+data class PokemonResponse(
+    @SerializedName("results")
+    val results: List<PokemonModel?>?
+)

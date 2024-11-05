@@ -14,9 +14,9 @@ abstract class BaseVMFragment<VM : BaseViewModel, B : ViewBinding> : Fragment() 
     protected abstract val viewModel: VM
 
     abstract fun initViewBinding(
-        inflater : LayoutInflater,
-        container : ViewGroup?,
-        attachToParent : Boolean
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        attachToParent: Boolean
     ): B
 
 
@@ -25,8 +25,7 @@ abstract class BaseVMFragment<VM : BaseViewModel, B : ViewBinding> : Fragment() 
         savedInstanceState: Bundle?
     ): View? {
         onViewModelCreated()
-        binding = initViewBinding(inflater,container,false)
-        return binding.root
+        return initViewBinding(inflater, container, false).root
     }
 
     protected abstract fun onViewModelCreated()

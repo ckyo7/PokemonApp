@@ -52,12 +52,17 @@ class PokemonListActivity : BaseVMActivity<PokemonListViewModel, ActivityPokemon
         binding.rvPokemonList.apply {
             layoutManager = GridLayoutManager(
                 context,
-                resources.displayMetrics.widthPixels / resources.getDimensionPixelSize(R.dimen.pokemon_card_width),
+                getColumnsByScreenWidth(),
                 GridLayoutManager.VERTICAL,
                 false
             )
         }
     }
+
+    private fun getColumnsByScreenWidth() =
+        resources.displayMetrics.widthPixels /
+                resources.getDimensionPixelSize(R.dimen.pokemon_card_width)
+
 
     private fun updateLoadingVisibility(isLoading: Boolean) {
         binding.loadingView.root.visibility = if (isLoading) {

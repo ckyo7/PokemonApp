@@ -12,7 +12,7 @@ class AbilitiesPokemonDetailAdapter(
 ) :
     RecyclerView.Adapter<AbilitiesPokemonDetailAdapter.AbilityViewHolder>() {
 
-    inner class AbilityViewHolder(val binding: PokemonAbilityBinding) :
+    inner class AbilityViewHolder(private val binding: PokemonAbilityBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(ability: PokemonDetailViewModel.Companion.AbilityWrapper) {
             binding.abilityName.text = ability.formattedName

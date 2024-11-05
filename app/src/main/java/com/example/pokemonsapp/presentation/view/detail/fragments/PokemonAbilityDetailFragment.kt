@@ -21,16 +21,25 @@ class PokemonAbilityDetailFragment :
 
     override fun onViewModelCreated() {
         viewModel.abilityDetailData.observe(this) {
-            binding.abilityTittle.text = it.name.replace(
-                GlobalConstants.HYPHEN_CHAR,
-                GlobalConstants.EMPTY_TEXT_SPACE
-            ).replaceFirstChar { char -> char.uppercase() }
-            binding.abilityDescription.text = it.effect
+            initAbilityTitle(it.name)
+            initAbilityDescription(it.effect)
         }
 
         arguments?.getString(INTENT_ABILITY_NAME)?.let {
             viewModel.obtainAbilityDetail(it)
         }
+    }
+
+    /* UI METHODS*/
+    private fun initAbilityTitle(abilityName: String) {
+        binding.abilityTittle.text = abilityName.replace(
+            GlobalConstants.HYPHEN_CHAR,
+            GlobalConstants.EMPTY_TEXT_SPACE
+        ).replaceFirstChar { char -> char.uppercase() }
+    }
+
+    private fun initAbilityDescription(effect: String) {
+        binding.abilityDescription.text = effect
     }
 
     override fun onDestroy() {
