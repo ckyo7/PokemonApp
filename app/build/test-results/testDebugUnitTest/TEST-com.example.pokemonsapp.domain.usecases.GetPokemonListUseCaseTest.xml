@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.pokemonsapp.domain.usecases.GetPokemonListUseCaseTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-11-04T06:38:53" hostname="DESKTOP-OLGIJIS" time="17.629">
+  <properties/>
+  <testcase name="when repository returns null model then emit Error " classname="com.example.pokemonsapp.domain.usecases.GetPokemonListUseCaseTest" time="2.534"/>
+  <testcase name="when repository throws IOException, should emit error" classname="com.example.pokemonsapp.domain.usecases.GetPokemonListUseCaseTest" time="2.512"/>
+  <testcase name="when repository throws Exception, should emit error" classname="com.example.pokemonsapp.domain.usecases.GetPokemonListUseCaseTest" time="2.517"/>
+  <testcase name="when repository returns successful response then emit Success" classname="com.example.pokemonsapp.domain.usecases.GetPokemonListUseCaseTest" time="2.515"/>
+  <testcase name="when repository returns list with just wrong models then emit Error " classname="com.example.pokemonsapp.domain.usecases.GetPokemonListUseCaseTest" time="2.516"/>
+  <testcase name="when repository returns empty list then emit Error" classname="com.example.pokemonsapp.domain.usecases.GetPokemonListUseCaseTest" time="2.518"/>
+  <testcase name="when repository returns error response then emit Success" classname="com.example.pokemonsapp.domain.usecases.GetPokemonListUseCaseTest" time="2.516"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@style/Theme.PokemonsApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pokemon_detail.xml">
+        <config>
+          <theme>@style/Theme.PokemonsApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pokemon_list.xml">
+        <config>
+          <theme>@style/Theme.PokemonsApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_pokemon_abilities.xml">
+        <config>
+          <theme>@style/Theme.PokemonsApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_pokemon_detail.xml">
+        <config>
+          <theme>@style/Theme.PokemonsApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/loader_layout.xml">
+        <config>
+          <theme>@style/Theme.PokemonsApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/pokemon_ability.xml">
+        <config>
+          <theme>@style/Theme.PokemonsApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/pokemon_card.xml">
+        <config>
+          <theme>@style/Theme.PokemonsApp</theme>
+        </config>
+      </layout>
+    </layouts>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4349cfea-50dc-44a3-bf97-65e9ac5e6243" name="Changes" comment="Delay added to show loading" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\Marcos\.android\avd\Medium_Phone_API_33.avd)]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Data Class" />
+        <option value="layoutResourceFile" />
+        <option value="valueResourceFile" />
+        <option value="Kotlin File" />
+        <option value="resourceFile" />
+        <option value="JUnit5 Test Class" />
+        <option value="Kotlin Class" />
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ckyo7&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ckyo7/PokemonApp.git&quot;,
+    &quot;accountId&quot;: &quot;0871238c-97e6-4e74-9ec2-2daee9c42d45&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/com/example/pokemonsapp/presentation/view/detail/adapter/AbilitiesPokemonDetailAdapter.kt" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2o6D7s0kbTK1SOHIyzeV5urMcCO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.app.executor": "Run",
+    "Android Instrumented Tests.PokemonDetailActivityTest.executor": "Run",
+    "Android Instrumented Tests.PokemonListViewModelTest.executor": "Run",
+    "Android Instrumented Tests.checkingButtonTextIsBack().executor": "Run",
+    "Android Instrumented Tests.testLoadingViewVisibilityIfIsLoadinIsTrue().executor": "Run",
+    "DEBUGGABLE_DEVICE": "Medium_Phone_API_33 [emulator-5556]",
+    "DEBUGGABLE_PROCESS": "com.example.pokemonsapp",
+    "DEBUGGER_ID": "Auto",
+    "Gradle.AbilitiesPokemonDetailAdapterTest.executor": "Coverage",
+    "Gradle.ColorsUtilTest.executor": "Run",
+    "Gradle.ColorsUtilTest.getColorByType returns correct color for known types.executor": "Run",
+    "Gradle.GetAbilityDetailUseCaseTest.executor": "Coverage",
+    "Gradle.GetPokemonDetailUseCaseTest.executor": "Coverage",
+    "Gradle.GetPokemonDetailUseCaseTest.when repository returns empty list then emit Error.executor": "Coverage",
+    "Gradle.GetPokemonListUseCaseTest.executor": "Coverage",
+    "Gradle.GetPokemonListUseCaseTest.when repository returns empty list then emit Error.executor": "Coverage",
+    "Gradle.GetPokemonListUseCaseTest.when repository returns error response then emit Success.executor": "Coverage",
+    "Gradle.GetPokemonListUseCaseTest.x.executor": "Run",
+    "Gradle.PokemonDetailViewModelTest.executor": "Run",
+    "Gradle.PokemonDetailViewModelTest.when obtain pokemon detail and success.executor": "Coverage",
+    "Gradle.PokemonListViewModelTest.executor": "Run",
+    "Gradle.PokemonListViewModelTest.when filter pokemon list with empty string then all are visible.executor": "Coverage",
+    "Gradle.PokemonListViewModelTest.when filter pokemon list with existing name.executor": "Coverage",
+    "Gradle.PokemonListViewModelTest.when obtain pokemon list and error.executor": "Coverage",
+    "Gradle.PokemonListViewModelTest.when obtain pokemon list and success.executor": "Coverage",
+    "Gradle.PokemonListViewModelTest.when textFilter is empty.executor": "Coverage",
+    "Gradle.PokemonListViewModelTest.x.executor": "Coverage",
+    "Gradle.PokemonRepositoryTest.executor": "Run",
+    "Gradle.RetrofitClientTest.executor": "Coverage",
+    "Gradle.Tests in 'com.example.pokemonsapp'.executor": "Run",
+    "Gradle.UtilsTest.executor": "Coverage",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SHOW_ALL_PROCESSES": "false",
+    "ScreenRecorder.SavePath": "C:\\Users\\Marcos",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/Marcos/AndroidStudioProjects/PokemonsApp/app/src/test/java/com/example/pokemonsapp/data",
+    "last_opened_file_path": "C:/Users/Marcos/AndroidStudioProjects/PokemonsApp/app/build/outputs/apk/debug/app-debug.apk",
+    "settings.editor.selected.configurable": "Template Data Languages"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="android.template.-1262111904">
+      <recent name="com.example.pokemonsapp.presentation.view.pokemonlist" />
+      <recent name="com.example.pokemonsapp.presentation.view.pokemonlist.viewmodel" />
+    </key>
+    <key name="android.template.1447032244">
+      <recent name="com.example.pokemonsapp.presentation.view.detail" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Marcos\AndroidStudioProjects\PokemonsApp\app\src\main\java\com\example\pokemonsapp\data\api\models" />
+      <recent name="C:\Users\Marcos\AndroidStudioProjects\PokemonsApp\app\src\main\res\layout" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Marcos\AndroidStudioProjects\PokemonsApp\app\src\main\res\font" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.pokemonsapp.presentation" />
+      <recent name="com.example.pokemonsapp.data.api.services" />
+      <recent name="com.example.pokemonsapp.presentation.view" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.pokemonsapp.data.repository" />
+      <recent name="com.example.pokemonsapp.data.client" />
+      <recent name="com.example.pokemonsapp.presentation.utils" />
+      <recent name="com.example.pokemonsapp.presentation.view.detail.adapter" />
+      <recent name="com.example.pokemonsapp.presentation.view.detail.viewmodels" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.example.pokemonsapp.presentation.utils" />
+      <recent name="com.example.pokemonsapp.data.api.models" />
+      <recent name="com.example.pokemonsapp.domain.usecases" />
+      <recent name="com.example.pokemonsapp.presentation.view.detail.adapter" />
+      <recent name="com.example.pokemonsapp.presentation.view.detail.viewmodel" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="PokemonsApp.app.main" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PokemonDetailViewModelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:testDebugUnitTest" />
+            <option value="--tests" />
+            <option value="&quot;com.example.pokemonsapp.presentation.view.detail.viewmodels.PokemonDetailViewModelTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PokemonListViewModelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:testDebugUnitTest" />
+            <option value="--tests" />
+            <option value="&quot;com.example.pokemonsapp.presentation.view.list.viewmodel.PokemonListViewModelTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PokemonRepositoryTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:testDebugUnitTest" />
+            <option value="--tests" />
+            <option value="&quot;com.example.pokemonsapp.data.repository.PokemonRepositoryTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="RetrofitClientTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:testDebugUnitTest" />
+            <option value="--tests" />
+            <option value="&quot;com.example.pokemonsapp.data.client.RetrofitClientTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'com.example.pokemonsapp'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:testDebugUnitTest" />
+            <option value="--tests" />
+            <option value="&quot;com.example.pokemonsapp.*&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Tests in 'com.example.pokemonsapp'" />
+        <item itemvalue="Gradle.PokemonListViewModelTest" />
+        <item itemvalue="Gradle.PokemonDetailViewModelTest" />
+        <item itemvalue="Gradle.PokemonRepositoryTest" />
+        <item itemvalue="Gradle.RetrofitClientTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4349cfea-50dc-44a3-bf97-65e9ac5e6243" name="Changes" comment="" />
+      <created>1730180967407</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730180967407</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1730182246583</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730182246583</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Security commit due to PC errors">
+      <option name="closed" value="true" />
+      <created>1730242394448</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730242394448</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Security commit due to PC errors -- Detail created and List styled">
+      <option name="closed" value="true" />
+      <created>1730505043095</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730505043095</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Security commit due to PC errors">
+      <option name="closed" value="true" />
+      <created>1730574846888</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730574846888</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Security commit due to PC errors -- Some visual fixes on pokemonList">
+      <option name="closed" value="true" />
+      <created>1730575815766</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730575815766</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Security commit due to PC errors -- Ability detail api service and screen implemented">
+      <option name="closed" value="true" />
+      <created>1730655387128</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730655387129</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Delay added to show loading">
+      <option name="closed" value="true" />
+      <created>1730702426992</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730702426992</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="Security commit due to PC errors -- Detail created and List styled" />
+    <MESSAGE value="Security commit due to PC errors" />
+    <MESSAGE value="Security commit due to PC errors -- Some visual fixes on pokemonList" />
+    <MESSAGE value="Security commit due to PC errors -- Ability detail api service and screen implemented" />
+    <MESSAGE value="Delay added to show loading" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delay added to show loading" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/pokemonsapp/presentation/view/detail/fragments/PokemonDetailFragment.kt</url>
+          <line>128</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/pokemonsapp/presentation/view/detail/fragments/PokemonAbilityDetailFragment.kt</url>
+          <line>27</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/pokemonsapp/presentation/view/detail/fragments/PokemonDetailFragment.kt</url>
+          <line>90</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/pokemonsapp/presentation/utils/ValidatorUtil.kt</url>
+          <line>39</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/pokemonsapp/presentation/view/list/PokemonListActivity.kt</url>
+          <line>29</line>
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/pokemonsapp/presentation/view/detail/fragments/PokemonDetailFragment.kt</url>
+          <line>68</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/pokemonsapp/presentation/view/detail/fragments/PokemonDetailFragment.kt</url>
+          <line>57</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/pokemonsapp/presentation/view/detail/fragments/PokemonDetailFragment.kt</url>
+          <line>72</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-field">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/pokemonsapp/data/api/models/PokemonDetailResponse.kt</url>
+          <line>47</line>
+          <properties myFieldName="name" myClassName="com.example.pokemonsapp.data.api.models.Type" />
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.example.pokemonsapp.data.api.models.AbilityDetailResponse" memberName="effecEntries" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PokemonsApp$PokemonListViewModelTest_when_filter_pokemon_list_with_empty_string_then_all_are_visible.ic" NAME="PokemonListViewModelTest.when filter pokemon list with empty string then all are visible Coverage Results" MODIFIED="1730669462683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$AbilitiesPokemonDetailAdapterTest.ic" NAME="AbilitiesPokemonDetailAdapterTest Coverage Results" MODIFIED="1730673247146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$GetPokemonDetailUseCaseTest_when_repository_returns_empty_list_then_emit_Error.ic" NAME="GetPokemonDetailUseCaseTest.when repository returns empty list then emit Error Coverage Results" MODIFIED="1730663567390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$GetPokemonListUseCaseTest.ic" NAME="GetPokemonListUseCaseTest Coverage Results" MODIFIED="1730663508695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$RetrofitClientTest.ic" NAME="RetrofitClientTest Coverage Results" MODIFIED="1730675704037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$GetPokemonListUseCaseTest_when_repository_returns_error_response_then_emit_Success.ic" NAME="GetPokemonListUseCaseTest.when repository returns error response then emit Success Coverage Results" MODIFIED="1730661661212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$PokemonListViewModelTest_when_obtain_pokemon_list_and_error.ic" NAME="PokemonListViewModelTest.when obtain pokemon list and error Coverage Results" MODIFIED="1730667495163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$PokemonListViewModelTest.ic" NAME="PokemonListViewModelTest Coverage Results" MODIFIED="1730674609370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$PokemonRepositoryTest.ic" NAME="PokemonRepositoryTest Coverage Results" MODIFIED="1730675930721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$GetAbilityDetailUseCaseTest.ic" NAME="GetAbilityDetailUseCaseTest Coverage Results" MODIFIED="1730665178000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$PokemonListViewModelTest_when_textFilter_is_empty.ic" NAME="PokemonListViewModelTest.when textFilter is empty Coverage Results" MODIFIED="1730668216948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$GetPokemonDetailUseCaseTest.ic" NAME="GetPokemonDetailUseCaseTest Coverage Results" MODIFIED="1730669820564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$GetPokemonListUseCaseTest_when_repository_returns_empty_list_then_emit_Error.ic" NAME="GetPokemonListUseCaseTest.when repository returns empty list then emit Error Coverage Results" MODIFIED="1730660880895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$PokemonListViewModelTest_when_obtain_pokemon_list_and_success.ic" NAME="PokemonListViewModelTest.when obtain pokemon list and success Coverage Results" MODIFIED="1730668022093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$PokemonListViewModelTest_when_filter_pokemon_list_with_existing_name.ic" NAME="PokemonListViewModelTest.when filter pokemon list with existing name Coverage Results" MODIFIED="1730669744171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$PokemonListViewModelTest_x.ic" NAME="PokemonListViewModelTest.x Coverage Results" MODIFIED="1730667178140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$UtilsTest.ic" NAME="UtilsTest Coverage Results" MODIFIED="1730673481074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$PokemonDetailViewModelTest_when_obtain_pokemon_detail_and_success.ic" NAME="PokemonDetailViewModelTest.when obtain pokemon detail and success Coverage Results" MODIFIED="1730672247916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$PokemonDetailViewModelTest.ic" NAME="PokemonDetailViewModelTest Coverage Results" MODIFIED="1730673136315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/PokemonsApp$ColorsUtilTest.ic" NAME="ColorsUtilTest Coverage Results" MODIFIED="1730673812553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+  </component>
+</project>

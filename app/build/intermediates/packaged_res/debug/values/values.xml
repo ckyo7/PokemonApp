@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="blue_logo">#395fa8</color>
+    <color name="ic_snorlak_placeholder_background">#FEFFFF</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yellow_background">#ffcc01</color>
+    <string name="abilities_list_title">Abilities</string>
+    <string name="app_name">PokemonsApp</string>
+    <string name="bar_char">/</string>
+    <string name="button_back_title">Back</string>
+    <string name="content_description_chevron">Right Chevron</string>
+    <string name="content_description_gif">Pokemon Gif</string>
+    <string name="empty_space_text"> </string>
+    <string name="image_card_mode_content_description">Content Description image</string>
+    <string name="main_button">Gotta Catch \' Em All</string>
+    <string name="search_pokemon_title">Search Pokemon</string>
+    <string name="service_error_message">Error : %s, try later </string>
+    <string name="text_abilities_title_pokemon_detail">Abilities</string>
+    <string name="text_base_experience_pokemon_detail">B.Exp : %s exp</string>
+    <string name="text_height_pokemon_detail">Height : %s m</string>
+    <string name="text_name_pokemon_detail">Pokedex : %s, %s</string>
+    <string name="text_weight_pokemon_detail">Weight : %s kg</string>
+    <string name="types_list_title">Types</string>
+    <string name="url_pokemon_image">https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/%s.png</string>
+    <style name="Base.Theme.PokemonsApp" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="ImageViewDetail">
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <style name="MeasuresTextView">
+        <item name="android:textSize">15sp</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <style name="PokemonButtonStyle">
+        <item name="fontFamily">@font/pokemon_solid</item>
+        <item name="android:textColor">@color/yellow_background</item>
+        <item name="android:textColorHighlight">@color/black</item>
+        <item name="android:backgroundTint">@color/blue_logo</item>
+    </style>
+    <style name="PokemonCardNameStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="PokemonCardStyle">
+        <item name="cardMaxElevation">12dp</item>
+        <item name="cardElevation">6dp</item>
+        <item name="cardCornerRadius">20dp</item>
+    </style>
+    <style name="PokemonNameDetail">
+        <item name="android:textSize">30sp</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <style name="Theme.PokemonsApp" parent="Base.Theme.PokemonsApp">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:fontFamily">@font/pokemon_solid</item>
+    </style>
+    <style name="TypeTextView">
+        <item name="android:layout_marginVertical">8dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">10dp</item>
+    </style>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.pokemonsapp.presentation.utils.UtilsTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2024-11-04T06:39:11" hostname="DESKTOP-OLGIJIS" time="0.003">
+  <properties/>
+  <testcase name="getPokemonListValidated returns a list of ValidatedPokemonModel" classname="com.example.pokemonsapp.presentation.utils.UtilsTest" time="0.001"/>
+  <testcase name="validateAbilityDetail returns null when second effect is missing" classname="com.example.pokemonsapp.presentation.utils.UtilsTest" time="0.001"/>
+  <testcase name="validateAbilityDetail returns ValidatedAbilityDetail when second effect exists" classname="com.example.pokemonsapp.presentation.utils.UtilsTest" time="0.0"/>
+  <testcase name="getValidateAndCreateValidatedPokemonDetail returns ValidatedPokemonDetail when valid data is provided" classname="com.example.pokemonsapp.presentation.utils.UtilsTest" time="0.001"/>
+  <testcase name="getPokemonListValidated returns an empty list when all models are invalid" classname="com.example.pokemonsapp.presentation.utils.UtilsTest" time="0.0"/>
+  <testcase name="getValidateAndCreateValidatedPokemonDetail returns null when required data is missing" classname="com.example.pokemonsapp.presentation.utils.UtilsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

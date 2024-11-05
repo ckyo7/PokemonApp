@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.pokemonsapp.data.client.RetrofitClientTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-11-04T06:38:22" hostname="DESKTOP-OLGIJIS" time="0.209">
+  <properties/>
+  <testcase name="should have the correct base URL" classname="com.example.pokemonsapp.data.client.RetrofitClientTest" time="0.208"/>
+  <testcase name="should have an OkHttpClient with correct timeouts" classname="com.example.pokemonsapp.data.client.RetrofitClientTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "com.example.pokemonsapp-mergeDebugResources-37:/layout/fragment_pokemon_detail.xml",
+        "source": "com.example.pokemonsapp-main-40:/layout/fragment_pokemon_detail.xml"
+    },
+    {
+        "merged": "com.example.pokemonsapp-mergeDebugResources-37:/layout/pokemon_card.xml",
+        "source": "com.example.pokemonsapp-main-40:/layout/pokemon_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-mergeDebugResources-37:\\layout\\loader_layout.xml",
+        "source": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-main-40:\\layout\\loader_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-mergeDebugResources-37:\\layout\\fragment_pokemon_abilities.xml",
+        "source": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-main-40:\\layout\\fragment_pokemon_abilities.xml"
+    },
+    {
+        "merged": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-mergeDebugResources-37:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-main-40:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-mergeDebugResources-37:\\layout\\activity_pokemon_list.xml",
+        "source": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-main-40:\\layout\\activity_pokemon_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-mergeDebugResources-37:\\layout\\pokemon_ability.xml",
+        "source": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-main-40:\\layout\\pokemon_ability.xml"
+    },
+    {
+        "merged": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-mergeDebugResources-37:\\layout\\pokemon_card.xml",
+        "source": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-main-40:\\layout\\pokemon_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-mergeDebugResources-37:\\layout\\activity_pokemon_detail.xml",
+        "source": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-main-40:\\layout\\activity_pokemon_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-mergeDebugResources-37:\\layout\\fragment_pokemon_detail.xml",
+        "source": "C:\\Users\\Marcos\\.gradle\\daemon\\8.2\\com.example.pokemonsapp-main-40:\\layout\\fragment_pokemon_detail.xml"
+    }
+]

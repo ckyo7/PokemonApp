@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.pokemonsapp.domain.usecases.GetPokemonDetailUseCaseTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-11-04T06:38:40" hostname="DESKTOP-OLGIJIS" time="12.607">
+  <properties/>
+  <testcase name="when repository throws IOException, should emit error" classname="com.example.pokemonsapp.domain.usecases.GetPokemonDetailUseCaseTest" time="2.523"/>
+  <testcase name="when repository returns wrong data then emit Error" classname="com.example.pokemonsapp.domain.usecases.GetPokemonDetailUseCaseTest" time="2.524"/>
+  <testcase name="when repository throws Exception, should emit error" classname="com.example.pokemonsapp.domain.usecases.GetPokemonDetailUseCaseTest" time="2.517"/>
+  <testcase name="when repository returns right data then emit Error" classname="com.example.pokemonsapp.domain.usecases.GetPokemonDetailUseCaseTest" time="2.521"/>
+  <testcase name="when repository returns error response then emit Success" classname="com.example.pokemonsapp.domain.usecases.GetPokemonDetailUseCaseTest" time="2.522"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
