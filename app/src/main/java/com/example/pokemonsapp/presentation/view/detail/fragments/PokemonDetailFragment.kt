@@ -42,11 +42,13 @@ class PokemonDetailFragment :
 
     @SuppressLint("DefaultLocale")
     override fun onViewModelCreated() {
-        viewModel.isLoading.observe(this) {
-            binding.loadingView.root.visibility = if (it) {
-                View.VISIBLE
+        viewModel.isLoading.observe(this) { isLoading ->
+            if (isLoading) {
+                binding.loadingView.root.visibility = View.VISIBLE
+                binding.loadingView.lottieLoader.playAnimation()
             } else {
-                View.GONE
+                binding.loadingView.lottieLoader.cancelAnimation()
+                binding.loadingView.root.visibility = View.GONE
             }
         }
 

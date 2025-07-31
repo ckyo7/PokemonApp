@@ -79,9 +79,11 @@ class PokemonListFragment : BaseVMFragment<PokemonListViewModel, FragmentPokemon
     private fun updateLoadingVisibility(isLoading: Boolean) {
         binding.loadingView.root.visibility = if (isLoading) {
             binding.group.visibility = View.GONE
+            binding.loadingView.lottieLoader.playAnimation()
             View.VISIBLE
         } else {
             binding.group.visibility = View.VISIBLE
+            binding.loadingView.lottieLoader.playAnimation()
             View.GONE
         }
     }
