@@ -4,7 +4,8 @@
     <string name="main_button">Gotta Catch \' Em All</string>
 
     <string name="search_pokemon_title">Search Pokemon</string>
-    <string name="url_pokemon_image">https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/%s.png</string>
+    <string name="url_pokemon_image">https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/%s.png
+</string>
 
     <string name="bar_char">/</string>
     <string name="empty_space_text"> </string>

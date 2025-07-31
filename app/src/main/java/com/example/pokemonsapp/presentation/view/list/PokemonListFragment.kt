@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.pokemonsapp.R
 import com.example.pokemonsapp.databinding.FragmentPokemonListBinding
 import com.example.pokemonsapp.presentation.view.BaseVMFragment
+import com.example.pokemonsapp.presentation.view.list.adapter.GridSpacingItemDecoration
 import com.example.pokemonsapp.presentation.view.list.adapter.PokemonAdapter
 import com.example.pokemonsapp.presentation.view.list.viewmodel.PokemonListViewModel
 
@@ -59,17 +60,21 @@ class PokemonListFragment : BaseVMFragment<PokemonListViewModel, FragmentPokemon
     }
 
     private fun initRecyclerViewConfiguration() {
+        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.grid_spacing)
+        val columns = getColumnsByScreenWidth()
+
         binding.rvPokemonList.layoutManager = GridLayoutManager(
             context,
-            getColumnsByScreenWidth(),
+            columns,
             GridLayoutManager.VERTICAL,
             false
         )
+        binding.rvPokemonList.addItemDecoration(GridSpacingItemDecoration(columns, spacingInPixels, true))
     }
 
     private fun getColumnsByScreenWidth() =
         resources.displayMetrics.widthPixels /
-                resources.getDimensionPixelSize(R.dimen.pokemon_card_width)
+                (resources.getDimensionPixelSize(R.dimen.pokemon_card_width) + 8)
 
     private fun updateLoadingVisibility(isLoading: Boolean) {
         binding.loadingView.root.visibility = if (isLoading) {
