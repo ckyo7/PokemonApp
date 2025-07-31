@@ -80,7 +80,6 @@ class PokemonDetailViewModel(
 
                         is Resource.Success -> {
                             pokemonDetailData.postValue(result.data)
-                            isLoading.postValue(false)
                             hasLoadedData = true
                         }
                     }

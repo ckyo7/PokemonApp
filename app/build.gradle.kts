@@ -46,7 +46,8 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.palette:palette:1.0.0")
-
+    implementation ("com.github.bumptech.glide:glide:4.15.1") // o la versión más reciente
+    implementation ("com.github.bumptech.glide:gifdecoder:4.15.1") // Soporte para GIFs
     implementation("androidx.fragment:fragment-ktx:1.5.7")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
 

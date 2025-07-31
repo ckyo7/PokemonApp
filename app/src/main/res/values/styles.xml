@@ -33,13 +33,15 @@
 
     <style name="PokemonCardNameStyle">
         <item name="android:textSize">@dimen/card_pokemon_name_text_size</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/blackPokemonName</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="PokemonCardStyle">
-        <item name="backgroundColor">@color/white</item>
+        <item name="cardBackgroundColor">@color/white</item>
         <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="strokeColor">@color/card_stroke_color</item>
+        <item name="strokeWidth">@dimen/stroke_width</item>
         <item name="cardCornerRadius">@dimen/card_corner_radius</item>
     </style>
 

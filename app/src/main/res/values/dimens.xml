@@ -6,7 +6,8 @@
     <dimen name="pokemon_card_width">150dp</dimen>
     <dimen name="pokemon_card_height">170dp</dimen>
     <dimen name="card_image_size">96dp</dimen>
-    <dimen name="card_elevation">8dp</dimen>
-    <dimen name="card_corner_radius">20dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="stroke_width">2dp</dimen>
+    <dimen name="card_corner_radius">16dp</dimen>
     <dimen name="card_pokemon_name_text_size">18sp</dimen>
 </resources>

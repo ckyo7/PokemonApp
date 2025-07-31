@@ -2,18 +2,19 @@ package com.example.pokemonsapp.presentation.view.detail.fragments
 
 import android.annotation.SuppressLint
 import android.graphics.drawable.GradientDrawable
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavArgs
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.load.resource.gif.GifDrawable
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.example.pokemonsapp.R
 import com.example.pokemonsapp.databinding.FragmentPokemonDetailBinding
 import com.example.pokemonsapp.presentation.GlobalConstants
@@ -61,6 +62,34 @@ class PokemonDetailFragment :
 
         viewModel.frontSprite.observe(this) { sprite ->
             Glide.with(requireContext()).load(sprite)
+                .error(R.drawable.ic_logo)
+                .into(binding.pokemonImage)
+
+            Glide.with(requireContext())
+                .asGif()
+                .load(sprite)
+                .listener(object : RequestListener<GifDrawable> {
+                    override fun onLoadFailed(
+                        e: GlideException?,
+                        model: Any?,
+                        target: Target<GifDrawable>?,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        viewModel.isLoading.postValue(false)
+                        return false
+                    }
+
+                    override fun onResourceReady(
+                        resource: GifDrawable?,
+                        model: Any?,
+                        target: Target<GifDrawable>?,
+                        dataSource: DataSource?,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        viewModel.isLoading.postValue(false)
+                        return false
+                    }
+                })
                 .error(R.drawable.ic_logo)
                 .into(binding.pokemonImage)
         }
