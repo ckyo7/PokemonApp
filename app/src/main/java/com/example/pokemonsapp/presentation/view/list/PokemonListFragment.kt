@@ -13,24 +13,32 @@ import com.example.pokemonsapp.presentation.view.BaseVMFragment
 import com.example.pokemonsapp.presentation.view.list.adapter.PokemonAdapter
 import com.example.pokemonsapp.presentation.view.list.viewmodel.PokemonListViewModel
 
-
 class PokemonListFragment : BaseVMFragment<PokemonListViewModel, FragmentPokemonListBinding>(),
     PokemonAdapter.OnPokemonClickListener {
 
     override val viewModel: PokemonListViewModel by viewModels()
 
+    private lateinit var adapter: PokemonAdapter
+
     override fun initViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
         attachToParent: Boolean
-    ) = FragmentPokemonListBinding.inflate(layoutInflater)
+    ) = FragmentPokemonListBinding.inflate(inflater)
+
+    override fun initUi() {
+        adapter = PokemonAdapter(this)
+        binding.rvPokemonList.adapter = adapter
+        initRecyclerViewConfiguration()
+        initSearchComponent()
+    }
 
     override fun onViewModelCreated() {
-        viewModel.pokemonFilteredList.observe(this) { pokemonList ->
-            binding.rvPokemonList.adapter = PokemonAdapter(pokemonList, this)
+        viewModel.pokemonFilteredList.observe(viewLifecycleOwner) { pokemonList ->
+            adapter.submitList(pokemonList)
         }
 
-        viewModel.isLoading.observe(this) { isLoading ->
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
             updateLoadingVisibility(isLoading)
         }
 
@@ -39,12 +47,6 @@ class PokemonListFragment : BaseVMFragment<PokemonListViewModel, FragmentPokemon
         }
     }
 
-    override fun initUi() {
-        initSearchComponent()
-        initRecyclerViewConfiguration()
-    }
-
-    /* UI METHODS */
     override fun onPokemonClick(name: String) {
         val action = PokemonListFragmentDirections.actionPokemonListToPokemonDetail(name)
         findNavController().navigate(action)
@@ -57,20 +59,17 @@ class PokemonListFragment : BaseVMFragment<PokemonListViewModel, FragmentPokemon
     }
 
     private fun initRecyclerViewConfiguration() {
-        binding.rvPokemonList.apply {
-            layoutManager = GridLayoutManager(
-                context,
-                getColumnsByScreenWidth(),
-                GridLayoutManager.VERTICAL,
-                false
-            )
-        }
+        binding.rvPokemonList.layoutManager = GridLayoutManager(
+            context,
+            getColumnsByScreenWidth(),
+            GridLayoutManager.VERTICAL,
+            false
+        )
     }
 
     private fun getColumnsByScreenWidth() =
         resources.displayMetrics.widthPixels /
                 resources.getDimensionPixelSize(R.dimen.pokemon_card_width)
-
 
     private fun updateLoadingVisibility(isLoading: Boolean) {
         binding.loadingView.root.visibility = if (isLoading) {

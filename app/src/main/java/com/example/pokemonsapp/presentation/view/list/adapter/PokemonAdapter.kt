@@ -3,20 +3,20 @@ package com.example.pokemonsapp.presentation.view.list.adapter
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokemonsapp.R
 import com.example.pokemonsapp.data.api.models.ValidatedPokemonModel
 import com.example.pokemonsapp.databinding.PokemonCardBinding
 import com.example.pokemonsapp.presentation.GlobalConstants
-
 class PokemonAdapter(
-    private val pokemonList: List<ValidatedPokemonModel>,
-    val listener: OnPokemonClickListener
-) :
-    RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
+    private val listener: OnPokemonClickListener
+) : ListAdapter<ValidatedPokemonModel, PokemonAdapter.PokemonViewHolder>(DiffCallback) {
 
-    inner class PokemonViewHolder(private val binding: PokemonCardBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class PokemonViewHolder(private val binding: PokemonCardBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(pokemon: ValidatedPokemonModel) {
             binding.pokemonName.text = pokemon.name.replaceFirstChar { it.uppercase() }
@@ -29,12 +29,8 @@ class PokemonAdapter(
             } catch (exception: Exception) {
                 Glide.with(itemView).load(R.drawable.ic_launcher_foreground)
                     .into(binding.pokemonImage)
-                Log.d(
-                    null,
-                    exception.message ?: "Error has occurred when catching image from server"
-                )
-
             }
+
             itemView.rootView.setOnClickListener {
                 listener.onPokemonClick(pokemon.name)
             }
@@ -58,15 +54,24 @@ class PokemonAdapter(
     }
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
-        val pokemon = pokemonList[position]
-        holder.bind(pokemon)
-    }
-
-    override fun getItemCount(): Int {
-        return pokemonList.size
+        holder.bind(getItem(position))
     }
 
     interface OnPokemonClickListener {
         fun onPokemonClick(name: String)
+    }
+
+    companion object {
+        private val DiffCallback = object : DiffUtil.ItemCallback<ValidatedPokemonModel>() {
+            override fun areItemsTheSame(
+                oldItem: ValidatedPokemonModel,
+                newItem: ValidatedPokemonModel
+            ): Boolean = oldItem.name == newItem.name
+
+            override fun areContentsTheSame(
+                oldItem: ValidatedPokemonModel,
+                newItem: ValidatedPokemonModel
+            ): Boolean = oldItem == newItem
+        }
     }
 }
