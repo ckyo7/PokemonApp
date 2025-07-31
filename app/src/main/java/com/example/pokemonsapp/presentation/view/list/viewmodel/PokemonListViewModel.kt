@@ -21,6 +21,7 @@ class PokemonListViewModel(
 
     private val textFilter: MutableLiveData<String> = MutableLiveData()
     val pokemonList: MutableLiveData<List<ValidatedPokemonModel>> = MutableLiveData()
+
     val pokemonFilteredList = textFilter.switchMap { textFilter ->
         pokemonList.map { list ->
             if (textFilter.isEmpty()) {
@@ -40,6 +41,7 @@ class PokemonListViewModel(
                 }
 
                 is Resource.Success -> {
+                    hasLoadedData = true
                     isLoading.postValue(false)
                     setInitialData(result.data)
                 }

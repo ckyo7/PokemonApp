@@ -10,6 +10,7 @@
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:fontFamily">@font/pokemon_solid</item>
+        <item name="android:windowBackground">@color/yellow_background</item>
     </style>
 
 </resources>

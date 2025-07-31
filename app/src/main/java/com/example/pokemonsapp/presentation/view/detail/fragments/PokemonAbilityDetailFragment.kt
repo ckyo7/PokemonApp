@@ -19,6 +19,10 @@ class PokemonAbilityDetailFragment :
         attachToParent: Boolean
     ) = FragmentPokemonAbilitiesBinding.inflate(inflater, container, attachToParent)
 
+    override fun initUi() {
+        TODO("Not yet implemented")
+    }
+
     override fun onViewModelCreated() {
         viewModel.abilityDetailData.observe(this) {
             initAbilityTitle(it.name)

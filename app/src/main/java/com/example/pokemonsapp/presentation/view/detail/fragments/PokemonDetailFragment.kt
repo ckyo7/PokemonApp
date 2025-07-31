@@ -8,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.navigation.NavArgs
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -15,14 +18,15 @@ import com.example.pokemonsapp.R
 import com.example.pokemonsapp.databinding.FragmentPokemonDetailBinding
 import com.example.pokemonsapp.presentation.GlobalConstants
 import com.example.pokemonsapp.presentation.view.BaseVMFragment
-import com.example.pokemonsapp.presentation.view.detail.PokemonDetailActivity.Companion.INTENT_POKEMON_DETAIL_NAME
 import com.example.pokemonsapp.presentation.view.detail.adapter.AbilitiesPokemonDetailAdapter
 import com.example.pokemonsapp.presentation.view.detail.viewmodels.PokemonDetailViewModel
 
 class PokemonDetailFragment :
     BaseVMFragment<PokemonDetailViewModel, FragmentPokemonDetailBinding>(),
     AbilitiesPokemonDetailAdapter.OnAbilityClickListener {
-    override val viewModel: PokemonDetailViewModel by activityViewModels()
+    override val viewModel: PokemonDetailViewModel by viewModels()
+
+    val args: PokemonDetailFragmentArgs by navArgs()
 
     override fun initViewBinding(
         inflater: LayoutInflater,
@@ -30,14 +34,21 @@ class PokemonDetailFragment :
         attachToParent: Boolean
     ) = FragmentPokemonDetailBinding.inflate(inflater, container, false)
 
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun initUi() {
         binding.root.visibility = View.VISIBLE
         initAbilityRecyclcerView()
     }
 
     @SuppressLint("DefaultLocale")
     override fun onViewModelCreated() {
+        viewModel.isLoading.observe(this) {
+            binding.loadingView.root.visibility = if (it) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+        }
+
         viewModel.nameWrapper.observe(this) { screenData ->
             binding.pokemonName.text = getString(
                 R.string.text_name_pokemon_detail,
@@ -86,18 +97,17 @@ class PokemonDetailFragment :
         viewModel.abilityList.observe(this) { abilities ->
             binding.rvAbilities.adapter = AbilitiesPokemonDetailAdapter(abilities, this)
         }
-
-        activity?.intent?.getStringExtra(INTENT_POKEMON_DETAIL_NAME)?.let {
-            viewModel.obtainPokemonDetail(it)
-        } ?: {
-            //show error
+        if (!viewModel.hasLoadedData) {
+            viewModel.obtainPokemonDetail(args.pokemonID)
         }
     }
 
     /*  INIT UI METHODS */
     private fun initAbilityRecyclcerView() {
         binding.rvAbilities.apply {
-            layoutManager = object : LinearLayoutManager(context) { override fun canScrollVertically() = false }
+            layoutManager = object : LinearLayoutManager(context) {
+                override fun canScrollVertically() = false
+            }
         }
     }
 

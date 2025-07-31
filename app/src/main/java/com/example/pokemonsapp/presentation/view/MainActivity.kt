@@ -1,10 +1,8 @@
 package com.example.pokemonsapp.presentation.view
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pokemonsapp.databinding.ActivityMainBinding
-import com.example.pokemonsapp.presentation.view.list.PokemonListActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -13,18 +11,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        initBoton()
-    }
-
-    private fun initBoton(){
-        binding.boton.setOnClickListener {
-            navigateToPokemonList()
-        }
-    }
-
-    private fun navigateToPokemonList() {
-        startActivity(Intent(this, PokemonListActivity::class.java))
-        finish()
     }
 }

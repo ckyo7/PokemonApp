@@ -10,6 +10,8 @@
     <string name="empty_space_text"> </string>
     <string name="service_error_message">Error : %s, try later </string>
     <string name="image_card_mode_content_description">Content Description image</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

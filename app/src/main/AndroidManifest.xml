@@ -15,12 +15,6 @@
         android:theme="@style/Theme.PokemonsApp"
         tools:targetApi="31" >
         <activity
-            android:name=".presentation.view.detail.PokemonDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.view.list.PokemonListActivity"
-            android:exported="false" />
-        <activity
             android:name=".presentation.view.MainActivity"
             android:exported="true" >
             <intent-filter>
