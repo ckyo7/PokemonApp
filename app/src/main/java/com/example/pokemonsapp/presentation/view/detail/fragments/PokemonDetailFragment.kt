@@ -2,10 +2,14 @@ package com.example.pokemonsapp.presentation.view.detail.fragments
 
 import android.annotation.SuppressLint
 import android.graphics.drawable.GradientDrawable
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,6 +39,15 @@ class PokemonDetailFragment :
         attachToParent: Boolean
     ) = FragmentPokemonDetailBinding.inflate(inflater, container, false)
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            binding.pokemonImage.updatePadding(top = systemBars.top)
+            insets
+        }
+    }
+
     override fun initUi() {
         binding.root.visibility = View.VISIBLE
         initAbilityRecyclcerView()
@@ -58,8 +71,6 @@ class PokemonDetailFragment :
                 screenData.id,
                 screenData.name
             )
-            binding.pokemonBaseExp.text =
-                getString(R.string.text_base_experience_pokemon_detail, screenData.baseExperience)
         }
 
         viewModel.frontSprite.observe(this) { sprite ->

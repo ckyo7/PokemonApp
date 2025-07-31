@@ -1,8 +1,11 @@
 package com.example.pokemonsapp.presentation.view.list
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -13,6 +16,8 @@ import com.example.pokemonsapp.presentation.view.BaseVMFragment
 import com.example.pokemonsapp.presentation.view.list.adapter.GridSpacingItemDecoration
 import com.example.pokemonsapp.presentation.view.list.adapter.PokemonAdapter
 import com.example.pokemonsapp.presentation.view.list.viewmodel.PokemonListViewModel
+
+import androidx.core.view.updatePadding
 
 class PokemonListFragment : BaseVMFragment<PokemonListViewModel, FragmentPokemonListBinding>(),
     PokemonAdapter.OnPokemonClickListener {
@@ -26,6 +31,22 @@ class PokemonListFragment : BaseVMFragment<PokemonListViewModel, FragmentPokemon
         container: ViewGroup?,
         attachToParent: Boolean
     ) = FragmentPokemonListBinding.inflate(inflater)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            binding.searchEditText.updatePadding(top = systemBars.top)
+
+            binding.rvPokemonList.updatePadding(
+                bottom =
+                systemBars.bottom + 16
+            )
+
+            insets
+        }
+    }
 
     override fun initUi() {
         adapter = PokemonAdapter(this)
@@ -69,7 +90,13 @@ class PokemonListFragment : BaseVMFragment<PokemonListViewModel, FragmentPokemon
             GridLayoutManager.VERTICAL,
             false
         )
-        binding.rvPokemonList.addItemDecoration(GridSpacingItemDecoration(columns, spacingInPixels, true))
+        binding.rvPokemonList.addItemDecoration(
+            GridSpacingItemDecoration(
+                columns,
+                spacingInPixels,
+                true
+            )
+        )
     }
 
     private fun getColumnsByScreenWidth() =

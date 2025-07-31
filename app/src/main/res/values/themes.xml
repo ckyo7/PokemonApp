@@ -3,14 +3,18 @@
     <style name="Base.Theme.PokemonsApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!-- Texto base -->
+        <item name="android:textColorPrimary">@color/blue_logo</item>
     </style>
 
     <style name="Theme.PokemonsApp" parent="Base.Theme.PokemonsApp">
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:fitsSystemWindows">true</item>
         <item name="android:fontFamily">@font/pokemon_solid</item>
         <item name="android:windowBackground">@color/yellow_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
 
 </resources>

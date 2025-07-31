@@ -1,101 +1,117 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/pokemonImage"
-        style="@style/ImageViewDetail"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="25dp"
-        android:contentDescription="@string/content_description_gif"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@mipmap/ic_snorlak_placeholder_foreground" />
+    <!-- ScrollView con todo el contenido -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/pokemonName"
-        style="@style/PokemonNameDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pokemonImage"
-        tools:text="SNORLAK" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-    <TextView
-        android:id="@+id/pokemonType"
-        style="@style/TypeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@id/pokemonType2"
-        app:layout_constraintStart_toStartOf="@id/pokemonName"
-        app:layout_constraintTop_toBottomOf="@id/pokemonName"
-        tools:text="Normal"
-        tools:visibility="visible" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
-    <TextView
-        android:id="@+id/pokemonType2"
-        style="@style/TypeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/pokemonType"
-        app:layout_constraintEnd_toEndOf="@id/pokemonName"
-        app:layout_constraintStart_toEndOf="@id/pokemonType"
-        app:layout_constraintTop_toTopOf="@id/pokemonType"
-        tools:text="Normal"
-        tools:visibility="visible" />
+            <ImageView
+                android:id="@+id/pokemonImage"
+                style="@style/ImageViewDetail"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:contentDescription="@string/content_description_gif"
+                android:layout_gravity="center_horizontal"
+                tools:src="@mipmap/ic_snorlak_placeholder_foreground" />
 
-    <TextView
-        android:id="@+id/pokemon_height"
-        style="@style/MeasuresTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pokemonType"
-        tools:text="@string/text_height_pokemon_detail" />
+            <TextView
+                android:id="@+id/pokemonName"
+                style="@style/PokemonNameDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_gravity="center_horizontal"
+                tools:text="SNORLAK" />
 
-    <TextView
-        android:id="@+id/pokemon_base_exp"
-        style="@style/MeasuresTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="18dp"
-        app:layout_constraintEnd_toEndOf="@+id/pokemon_weight"
-        app:layout_constraintStart_toStartOf="@+id/pokemon_height"
-        app:layout_constraintTop_toBottomOf="@+id/pokemon_weight"
-        tools:text="@string/text_base_experience_pokemon_detail" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp">
 
-    <TextView
-        android:id="@+id/pokemon_weight"
-        style="@style/MeasuresTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/pokemon_height"
-        app:layout_constraintTop_toTopOf="@+id/pokemon_height"
-        tools:text="@string/text_weight_pokemon_detail" />
+                <TextView
+                    android:id="@+id/pokemonType"
+                    style="@style/TypeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    tools:text="Normal"
+                    tools:visibility="visible" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_abilities"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/pokemon_weight"
-        app:layout_constraintStart_toStartOf="@+id/pokemon_height"
-        app:layout_constraintTop_toBottomOf="@id/pokemon_base_exp"
-        tools:itemCount="3" />
+                <TextView
+                    android:id="@+id/pokemonType2"
+                    style="@style/TypeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:visibility="gone"
+                    tools:text="Normal"
+                    tools:visibility="visible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/pokemon_height"
+                    style="@style/MeasuresTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:text="@string/text_height_pokemon_detail" />
+
+                <TextView
+                    android:id="@+id/pokemon_weight"
+                    style="@style/MeasuresTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    tools:text="@string/text_weight_pokemon_detail" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_abilities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:padding="10dp"
+                tools:itemCount="3" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <include
         android:id="@+id/loadingView"
-        layout="@layout/loader_layout" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        layout="@layout/loader_layout"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>

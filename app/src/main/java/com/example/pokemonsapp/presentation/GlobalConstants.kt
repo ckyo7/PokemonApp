@@ -7,5 +7,5 @@ object GlobalConstants {
     const val BAR_RIGHT_CHAR = "/"
 
     const val PATTERN_TWO_DECIMAL="%.2f"
-    const val CONVERSION_RATE = 10.00
+    const val CONVERSION_RATE = 100.00
 }
