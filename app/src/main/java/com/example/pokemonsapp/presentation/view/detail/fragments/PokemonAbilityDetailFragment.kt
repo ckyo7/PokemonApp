@@ -30,7 +30,7 @@ class PokemonAbilityDetailFragment :
         }
 
         arguments?.getString(INTENT_ABILITY_NAME)?.let {
-            viewModel.obtainAbilityDetail(it)
+            //viewModel.obtainAbilityDetail(it)
         }
     }
 

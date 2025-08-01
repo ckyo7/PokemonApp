@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/yellow_background"
+    android:orientation="vertical"
+    android:fitsSystemWindows="false"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/bottomSheetTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+        android:textColor="?android:textColorPrimary"
+        tools:text="Detalles del Pokémon" />
+
+    <TextView
+        android:id="@+id/bottomSheetBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:textColor="?android:textColorSecondary"
+        tools:text="Aquí se muestra una descripción detallada del Pokémon seleccionado, incluyendo habilidades, estadísticas y más información relevante." />
+
+</LinearLayout>

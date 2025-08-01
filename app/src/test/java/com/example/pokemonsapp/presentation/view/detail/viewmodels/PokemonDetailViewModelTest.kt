@@ -107,13 +107,13 @@ class PokemonDetailViewModelTest {
         )
 
         assertEquals(
-            validatedDetail.height * GlobalConstants.CONVERSION_RATE,
+            validatedDetail.height * GlobalConstants.CONVERSION_HEIGHT_RATE,
             viewModel.heightData.getOrAwaitValue(),
             0.0
         )
 
         assertEquals(
-            validatedDetail.weight * GlobalConstants.CONVERSION_RATE,
+            validatedDetail.weight * GlobalConstants.CONVERSION_HEIGHT_RATE,
             viewModel.weightData.getOrAwaitValue(),
             0.0
         )

@@ -6,6 +6,8 @@ object GlobalConstants {
     const val HYPHEN_CHAR = "-"
     const val BAR_RIGHT_CHAR = "/"
 
-    const val PATTERN_TWO_DECIMAL="%.2f"
-    const val CONVERSION_RATE = 100.00
+    const val PATTERN_TWO_DECIMAL = "%.2f"
+    const val CONVERSION_RATE = 1000.00
+    const val ARG_ABILITY_DETAIL = "arg_ability_detail"
+
 }

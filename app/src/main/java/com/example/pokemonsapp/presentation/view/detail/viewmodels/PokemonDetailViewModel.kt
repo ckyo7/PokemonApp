@@ -13,6 +13,9 @@ import com.example.pokemonsapp.domain.usecases.GetPokemonDetailUseCase
 import com.example.pokemonsapp.presentation.BaseViewModel
 import com.example.pokemonsapp.presentation.GlobalConstants
 import com.example.pokemonsapp.presentation.utils.getColorByType
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 class PokemonDetailViewModel(
@@ -27,6 +30,7 @@ class PokemonDetailViewModel(
     private val pokemonDetailData: MutableLiveData<ValidatedPokemonDetail> = MutableLiveData()
     var abilityDetailData: MutableLiveData<ValidatedAbilityDetail> = MutableLiveData()
     val abilityClicked: MutableLiveData<String> = MutableLiveData()
+    val abilitiesDetailsData : MutableList<ValidatedAbilityDetail> = mutableListOf()
 
     val frontSprite = pokemonDetailData.map {
         it.sprites.other.showdown.frontDefault
@@ -71,26 +75,50 @@ class PokemonDetailViewModel(
     fun obtainPokemonDetail(name: String) {
         if (!pokemonDetailData.isInitialized) {
             isLoading.postValue(true)
-            viewModelScope.launch {
-                getPokemonDetailUseCase.invoke(name).collect { result ->
-                    when (result) {
-                        is Resource.Error -> {
-                            toastErrorMessage.postValue(result.message)
-                        }
 
-                        is Resource.Success -> {
-                            pokemonDetailData.postValue(result.data)
-                            hasLoadedData = true
+            viewModelScope.launch {
+                try {
+                    getPokemonDetailUseCase.invoke(name).collect { result ->
+                        when (result) {
+                            is Resource.Error -> {
+                                toastErrorMessage.postValue(result.message)
+                            }
+
+                            is Resource.Success -> {
+                                result.data?.let { pokemon ->
+
+                                    try {
+                                        // Llama a cada habilidad de forma concurrente y espera a que todas terminen
+                                        coroutineScope {
+                                            val habilidades = pokemon.abilities.map { abilityInfo ->
+                                                async {
+                                                    obtainAbilityDetail(abilityInfo.ability.name)
+                                                }
+                                            }
+                                            habilidades.awaitAll() // Aquí esperas todas, no solo la primera
+                                        }
+
+                                    } catch (e: Exception) {
+                                        toastErrorMessage.postValue("Error al cargar habilidades")
+                                    }finally {
+                                        pokemonDetailData.postValue(pokemon)
+                                    }
+                                }
+                            }
                         }
                     }
+                } catch (e: Exception) {
+                    toastErrorMessage.postValue("Error inesperado: ${e.message}")
+                } finally {
+                    // Asegúrate de ocultar el loader cuando todo haya terminado
 
+                    isLoading.postValue(false)
                 }
             }
         }
     }
 
-    fun obtainAbilityDetail(name: String) = viewModelScope.launch {
-        isLoading.postValue(true)
+    suspend  fun obtainAbilityDetail(name: String) {
         getAbilityDetailUseCase.invoke(name).collect { result ->
             when (result) {
                 is Resource.Error -> {
@@ -98,8 +126,7 @@ class PokemonDetailViewModel(
                 }
 
                 is Resource.Success -> {
-                    abilityDetailData.postValue(result.data)
-                    isLoading.postValue(false)
+                    abilitiesDetailsData.add(result.data)
                 }
             }
 

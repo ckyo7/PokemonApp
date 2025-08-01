@@ -23,6 +23,7 @@ import com.example.pokemonsapp.R
 import com.example.pokemonsapp.databinding.FragmentPokemonDetailBinding
 import com.example.pokemonsapp.presentation.GlobalConstants
 import com.example.pokemonsapp.presentation.view.BaseVMFragment
+import com.example.pokemonsapp.presentation.view.bottomsheet.fragments.BottomSheetFragment
 import com.example.pokemonsapp.presentation.view.detail.adapter.AbilitiesPokemonDetailAdapter
 import com.example.pokemonsapp.presentation.view.detail.viewmodels.PokemonDetailViewModel
 
@@ -178,6 +179,9 @@ class PokemonDetailFragment :
     }
 
     override fun onAbilityClick(name: String) {
-        viewModel.abilityClicked.postValue(name)
-    }
+        viewModel.abilitiesDetailsData.find { it.name == name }?.let {
+            val bottomSheet = BottomSheetFragment.newInstance(it)
+            bottomSheet.show(parentFragmentManager, "MyBottomSheet")
+        }
+ }
 }
